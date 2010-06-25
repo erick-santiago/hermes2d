@@ -1433,7 +1433,7 @@ cdef class Adapt:
 	"""
         return self.thisptr.calc_error(error_flags)
 
-    def adapt(self, ProjBasedSelector selector, double thr, int strat = 0, int regularize = -1, int same_orders = 0, double to_be_processed = 0.0):
+    def adapt(self, ProjBasedSelector selector, double thr, int strat = 0, int regularize = -1, double to_be_processed = 0.0):
         """ Does adaptive refinement based on errors of elements.
 	    Refinements are selected using a supplied selector.
 
@@ -1452,7 +1452,7 @@ cdef class Adapt:
 	    - ```same_orders``` specifies whether all element should have the same order. Default is `False`.
 	    - ```to_be_procesed``` specifies an error to process. Used by strategy 3. Default is `0.0`.
 	"""
-        return self.thisptr.adapt(selector.thisptr, thr, strat, regularize, same_orders, to_be_processed)
+        return self.thisptr.adapt(selector.thisptr, thr, strat, regularize, to_be_processed)
 
 cdef class H1Adapt(Adapt):
     """ Adaptivity class for H1 space.
